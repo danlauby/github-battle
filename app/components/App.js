@@ -1,3 +1,4 @@
+{/* Import required labraries and components */}
 var React = require('react');
 var Popular = require('./Popular');
 var ReactRouter = require('react-router-dom');
@@ -9,6 +10,10 @@ var Home = require('./Home');
 var Battle = require('./Battle');
 var Results = require('./Results');
 
+{/* Inject Nav component */}
+{/* Define routes using react-router (router, route switch) library */}
+{/* Set home and battle routes to 'exact' so battle won't render when battle/results renders */}
+{/* 404 route displays if error thrown */}
 class App extends React.Component {
   render() {
     return (
@@ -30,4 +35,5 @@ class App extends React.Component {
   }
 }
 
+{/* Export App component to  */}
 module.exports = App;

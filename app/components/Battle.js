@@ -1,8 +1,18 @@
+{/* Import required libraies and components */}
 var React = require('react');
 var PropTypes = require('prop-types');
 var Link = require('react-router-dom').Link;
 var PlayerPreview = require('./PlayerPreview');
 
+{/* Set initial state of username to an empty string */}
+{/* Bind 'this' to handleChange and handleSubmit methods so they can read 'this' from other components */}
+{/* Event handler takes in input 'value' and sets username state when submitted */}
+{/* Event handler stores id and usernname as props when user clickes submit */}
+{/* Render form and set input properties */}
+{/* onSubmit calls handleSubmit method / sets state of username */}
+{/* Display label prop from Results -> Player component */}
+{/* Set input value prop as username */}
+{/* onChange  calls handleChangemethod method / stores id and username state to props */}
 class PlayerInput extends React.Component {
   constructor (props) {
     super (props);
@@ -53,6 +63,7 @@ class PlayerInput extends React.Component {
   }
 }
 
+{/* Set data types for PlayerInput properties */}
 PlayerInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -60,6 +71,10 @@ PlayerInput.propTypes = {
 
 }
 
+{/* Set initial state for Battle component properties */}
+{/* handleSubmit stores username and Github avatar props as newState property */}
+{/* Reset Battle inputs if Reset button clicked */}
+{/* Render UI of each player if player username and img !null */}
 class Battle extends React.Component {
   constructor(props) {
     super(props);
@@ -80,7 +95,6 @@ class Battle extends React.Component {
       return newState;
     });
   }
-
   handleReset(id) {
     this.setState(function () {
       var newState = {};
@@ -151,4 +165,5 @@ class Battle extends React.Component {
   }
 }
 
+{/* Export Battle component to App.js, Results.js */}
 module.exports = Battle;

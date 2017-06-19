@@ -1,6 +1,9 @@
+{/* Import required libraries  */}
 var React = require('react');
 var Link = require('react-router-dom').Link;
 
+{/* Home component renders UI */}
+{/* Battle button placed in Link to /battle */}
 class Home extends React.Component {
   render () {
     return (
@@ -15,4 +18,5 @@ class Home extends React.Component {
   }
 }
 
+{/* Export Home component to App.js */}
 module.exports = Home;
