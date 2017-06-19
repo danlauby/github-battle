@@ -37,7 +37,7 @@ function getUserData (player) {
   return axios.all([
     getProfile(player),
     getRepos(player)
-  ]).then(function () {
+  ]).then(function (data) {
     var profile = data[0];
     var repos = data[1];
 

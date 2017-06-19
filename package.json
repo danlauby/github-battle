@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "prop-types": "^15.5.10",
+    "query-string": "^4.3.4",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "react-router-dom": "^4.1.1"
