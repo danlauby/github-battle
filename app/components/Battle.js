@@ -39,7 +39,7 @@ class PlayerInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange (e) {
+  handleChange(e) {
     var value = e.target.value;
     this.setState(function () {
       return {
