@@ -1,6 +1,7 @@
-{/* Import required libraies and components */}
+{/* Import required libraies */}
 var React = require('react');
 var PropTypes = require('prop-types');
+{/* Import required components */}
 var api = require('../utils/api');
 var Loading = require('./Loading');
 

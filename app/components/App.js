@@ -1,6 +1,7 @@
-{/* Import required labraries and components */}
+{/* Import required labraries */}
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+{/* Import required components */}
 import  Battle  from './Battle';
 import  Home  from './Home';
 import  Nav  from './Nav';
@@ -11,7 +12,7 @@ import  Results  from'./Results';
 {/* Define routes using react-router (router, route switch) library */}
 {/* Set home and battle routes to 'exact' so battle won't render when battle/results renders */}
 {/* 404 route displays if error thrown */}
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
@@ -31,6 +32,3 @@ class App extends React.Component {
     )
   }
 }
-
-{/* Export App component to  */}
-module.exports = App;

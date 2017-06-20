@@ -1,7 +1,8 @@
-{/* Import required libraies and components */}
+{/* Import required libraies */}
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+{/* Import required components */}
 import PlayerPreview from './PlayerPreview';
 
 {/* Set initial state of username to an empty string */}
