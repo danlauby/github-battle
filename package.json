@@ -4,7 +4,8 @@
   "description": "Learn React JS",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "set NODE_ENV=production&&webpack -p"
   },
   "babel": {
     "presets": [
