@@ -1,14 +1,11 @@
 {/* Import required labraries and components */}
-var React = require('react');
-var Popular = require('./Popular');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
-var Nav = require('./Nav');
-var Home = require('./Home');
-var Battle = require('./Battle');
-var Results = require('./Results');
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import  Battle  from './Battle';
+import  Home  from './Home';
+import  Nav  from './Nav';
+import  Popular  from './Popular';
+import  Results  from'./Results';
 
 {/* Inject Nav component */}
 {/* Define routes using react-router (router, route switch) library */}
@@ -17,7 +14,7 @@ var Results = require('./Results');
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className='container'>
           <Nav />
           <Switch>
@@ -30,7 +27,7 @@ class App extends React.Component {
             }} />
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }

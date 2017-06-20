@@ -1,10 +1,10 @@
 {/* Import required libraries  */}
-var React = require('react');
-var Link = require('react-router-dom').Link;
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 {/* Home component renders UI */}
 {/* Battle button placed in Link to /battle */}
-class Home extends React.Component {
+export default class Home extends React.Component {
   render () {
     return (
       <div className='home-container'>
@@ -17,6 +17,3 @@ class Home extends React.Component {
     )
   }
 }
-
-{/* Export Home component to App.js */}
-module.exports = Home;

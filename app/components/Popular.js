@@ -123,6 +123,3 @@ class Popular extends React.Component {
 }
 
 module.exports = Popular;
-
-
-{/* {JSON.stringify(this.state.repos, null, 2)} */}
