@@ -1,8 +1,17 @@
+{/* Import required libraies and components */}
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
+var Loading = require('./Loading');
 
 
+{/* Select language in nav to display repos */}
+{/* Popular nav bar of languages */}
+{/* For each lang in nav */}
+{/* If current lang === selected lang change color to red ('All' is default) */}
+{/* Event listener for nav languages (give props lang property) */}
+{/* Give each nav list-item a unique key with val of lang name */}
+{/* Insert each lang into a list-item */}
 function SelectLanguage (props) {
   var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
@@ -22,6 +31,14 @@ function SelectLanguage (props) {
   )
 }
 
+{/* Create UI grid to display popular repos (pass props as parameter) */}
+{/* For each repo return each response object's repo and index */}
+{/* Give each repo unique key of repo's name */}
+{/* Increment index to display github rankings */}
+{/* Display avatar of Github owner of each repo */}
+{/* Display username name of each Github repo (link to repo) */}
+{/* Display user log-in name of each Github repo */}
+{/* Display how many stars each Github repo has earned */}
 function RepoGrid (props) {
   return (
     <ul className='popular-list'>
@@ -48,10 +65,12 @@ function RepoGrid (props) {
   )
 }
 
+{/* Set restricted prop data-types for RepoGrid function */}
 RepoGrid.propTypes = {
   repos: PropTypes.array.isRequired
 }
 
+{/* Set restricted prop data-types for SelectLanguage function */}
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
@@ -96,7 +115,7 @@ class Popular extends React.Component {
         onSelect={this.updateLanguage}
         />
         {!this.state.repos
-          ? <p>Loading...</p>
+          ? <Loading />
           : <RepoGrid repos={this.state.repos} />}
       </div>
     )
@@ -106,22 +125,4 @@ class Popular extends React.Component {
 module.exports = Popular;
 
 
-
-// Select language in nav to display repos
-//Popular nav bar of languages
-// For each lang in nav
-// If current lang === selected lang change color to red ('All' is default)
-// Event listener for nav languages (give props lang property)
-// Give each nav list-item a unique key with val of lang name
-// Insert each lang into a list-item
-// Create UI grid to display popular repos (pass props as parameter)
-// For each repo return each response object's repo and index
-// Give each repo unique key of repo's name
-// Increment index to display github rankings
-// Display avatar of Github owner of each repo
-// Display username name of each Github repo (link to repo)
-// Display user log-in name of each Github repo
-// Display how many stars each Github repo has earned
-// Set restricted prop data-types for RepoGrid function
-// Set restricted prop data-types for SelectLanguage function
-// {JSON.stringify(this.state.repos, null, 2)}
+{/* {JSON.stringify(this.state.repos, null, 2)} */}
