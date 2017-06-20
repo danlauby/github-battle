@@ -5,7 +5,7 @@ var Link = require('react-router-dom').Link;
 var PlayerPreview = require('./PlayerPreview');
 
 {/* Set initial state of username to an empty string */}
-{/* Bind 'this' to handleChange and handleSubmit methods so they can read 'this' from other components */}
+{/* Bind 'this' to handleChange and handleSubmit methods so 'this' refers to the parent component */}
 {/* Event handler takes in input 'value' and sets username state when submitted */}
 {/* Event handler stores id and usernname as props when user clickes submit */}
 {/* Render form and set input properties */}

@@ -5,6 +5,7 @@ var queryString = require('query-string');
 var Link = require('react-router-dom').Link;
 var api = require('../utils/api');
 var PlayerPreview = require('./PlayerPreview');
+var Loading = require('./Loading');
 
 {/* Display UI results of each player if truthy. PlayerPreview also used by Battle component */}
 function Profile (props) {
@@ -96,7 +97,7 @@ class Results extends React.Component {
     var loading = this.state.loading;
 
     if (loading === true) {
-      return <p>Loading...</p>;
+      return <Loading />;
     }
 
     if (error) {
