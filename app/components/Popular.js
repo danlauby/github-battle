@@ -1,9 +1,9 @@
 {/* Import required libraies */}
-var React = require('react');
-var PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 {/* Import required components */}
-var api = require('../utils/api');
-var Loading = require('./Loading');
+import api from '../utils/api';
+import Loading from './Loading';
 
 
 {/* Select language in nav to display repos */}
@@ -14,7 +14,7 @@ var Loading = require('./Loading');
 {/* Give each nav list-item a unique key with val of lang name */}
 {/* Insert each lang into a list-item */}
 function SelectLanguage (props) {
-  var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+  const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
   return (
     <ul className='languages'>
@@ -77,22 +77,23 @@ SelectLanguage.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
-class Popular extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
+{/* After DOM renders update state of selected language */}
+{/* Update state of selected language */}
+{/* Call Github API and run fetch method to return selected language repos */}
+{/* Pass SelectLanguage current language and update and display in grid */}
+{/* If repos falsy, run Loading method */}
+export default class Popular extends React.Component {
+  state = {
       selectedLanguage: 'All',
       repos: null
     };
 
-    this.updateLanguage = this.updateLanguage.bind(this);
-  }
   componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage(lang) {
-    this.setState(function () {
+  updateLanguage = (lang) => {
+    this.setState(() => {
       return {
         selectedLanguage: lang,
         repos: null
@@ -100,13 +101,13 @@ class Popular extends React.Component {
     });
 
     api.fetchPopularRepos(lang)
-    .then(function (repos) {
+    .then((repos) => {
       this.setState(function () {
         return {
           repos: repos,
         }
       })
-    }.bind(this));
+    });
   }
   render() {
     return (
@@ -122,5 +123,3 @@ class Popular extends React.Component {
     )
   }
 }
-
-module.exports = Popular;
