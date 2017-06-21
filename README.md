@@ -4,7 +4,7 @@
 A game that allows two players to compete against each other by comparing Github profiles and how many stars earned.
 The result displays both players stats and who the winner/loser is.
 
-* This game was created following the React Training (React Fundamentals - By Tyler McGinnis)[https://online.reacttraining.com/courses] course.
+* This game was created following the React Training [React Fundamentals - By Tyler McGinnis](https://online.reacttraining.com/courses) course.
 
 ![alt text](https://github.com/danlauby/github-battle/blob/master/github-battle-screenshot.PNG?raw=true)
 
