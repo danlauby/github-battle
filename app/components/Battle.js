@@ -70,19 +70,15 @@ PlayerInput.propTypes = {
 {/* handleSubmit stores username and Github avatar props as newState property */}
 {/* Reset Battle inputs if Reset button clicked */}
 {/* Render UI of each player if player username and img !null */}
-class Battle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+export default class Battle extends React.Component {
+  state = {
       playerOneName: '',
       playerTwoName: '',
       playerOneImage: null,
       playerTwoImage: null
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-  }
-  handleSubmit(id, username) {
+
+  handleSubmit = (id, username) => {
     this.setState(function () {
       const newState = {};
       newState[id + 'Name'] = username;
@@ -90,7 +86,7 @@ class Battle extends React.Component {
       return newState;
     });
   }
-  handleReset(id) {
+  handleReset = (id) => {
     this.setState(function () {
       const newState = {};
       newState[id + 'Name'] = '';
@@ -159,6 +155,3 @@ class Battle extends React.Component {
     )
   }
 }
-
-{/* Export Battle component to App.js, Results.js */}
-module.exports = Battle;
