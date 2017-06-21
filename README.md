@@ -6,7 +6,7 @@ The result displays both players stats and who the winner/loser is.
 
 * This game was created following the React Training [React Fundamentals - By Tyler McGinnis](https://online.reacttraining.com/courses) course.
 
-![alt text](https://github.com/danlauby/github-battle/blob/refactor-es6/github-battle-screenshot.png)
+![alt text](https://github.com/danlauby/github-battle/blob/refactor-es6/github-battle-screenshot.PNG?raw=true)
 
 ## Installation
 
