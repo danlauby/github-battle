@@ -6,7 +6,8 @@ The result displays both players stats and who the winner/loser is.
 
 * This game was created following the React Training (React Fundamentals - By Tyler McGinnis)[https://online.reacttraining.com/courses] course.
 
-![alt text](app/img/github-battle-screenshot.png "Github Battle")
+![alt text](https://github.com/danlauby/github-battle/blob/master/github-battle-screenshot.PNG?raw=true)
+
 ## Installation
 
 React is available as the `react` package on [npm](https://www.npmjs.com/). It is also available on a [CDN](https://facebook.github.io/react/docs/installation.html#using-a-cdn).
