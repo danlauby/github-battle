@@ -8,7 +8,7 @@ import PlayerPreview from './PlayerPreview';
 import Loading from './Loading';
 
 {/* Display UI results of each player if truthy. PlayerPreview also used by Battle component */}
-function Profile (props) {
+const Profile = (props) => {
   const info = props.info;
   return (
       <PlayerPreview username={info.login} avatar={info.avatar_url}>
@@ -24,6 +24,7 @@ function Profile (props) {
       </PlayerPreview>
     )
 }
+
 {/* Set required data types for Profile's properties */}
 Profile.propTypes = {
   info: PropTypes.object.isRequired
@@ -31,7 +32,7 @@ Profile.propTypes = {
 
 {/* Display UI of winner/loser title (PlayerPreview.js, Battle.js), score (api.js) */}
 {/* Display Profile component, passing profile prop */}
-function Player (props) {
+const Player = (props) => {
   return (
     <div>
     <h1 className='header'>{props.label}</h1>
@@ -61,16 +62,16 @@ export default class Results extends React.Component {
       loading: true
     }
 
-  componentDidMount () {
+  componentDidMount() {
     const players = queryString.parse(this.props.location.search)
     api.battle([
       players.playerOneName,
       players.playerTwoName
     ]).then((results) => {
       if (results === null) {
-        return this.setState(function () {
+        return this.setState(() => {
           return {
-            error: 'Looks like there was an error. Check that both users exsit on Gibhub',
+            error: 'Looks like there was an error. Check that both users exist on Gibhub',
             loading: false
           }
         });
@@ -86,6 +87,7 @@ export default class Results extends React.Component {
       });
     });
   }
+
   render() {
     const error = this.state.error;
     const winner = this.state.winner;

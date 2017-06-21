@@ -9,13 +9,14 @@ const styles = {
 }
 
 export default class Loading extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       text: props.text
     };
   }
+  
   componentDidMount() {
     const stopper = this.props.text + '...';
     this.interval = window.setInterval(function () {
@@ -26,7 +27,7 @@ export default class Loading extends React.Component {
           }
         })
       } else {
-        this.setState(function (prevState) {
+        this.setState((prevState) => {
           return {
             text: prevState.text + '.'
           }
@@ -34,10 +35,12 @@ export default class Loading extends React.Component {
       }
     }.bind(this), this.props.speed);
   }
-  componentWillUnmount () {
+
+  componentWillUnmount() {
     window.clearInterval(this.interval);
   }
-  render () {
+
+  render() {
     return (
       <p style={styles.content}>
         {this.state.text}

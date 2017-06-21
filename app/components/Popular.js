@@ -13,12 +13,11 @@ import Loading from './Loading';
 {/* Event listener for nav languages (give props lang property) */}
 {/* Give each nav list-item a unique key with val of lang name */}
 {/* Insert each lang into a list-item */}
-function SelectLanguage (props) {
+function SelectLanguage(props) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
-
   return (
     <ul className='languages'>
-      {languages.map(function (lang) {
+      {languages.map((lang) => {
         return (
           <li
             style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
@@ -40,10 +39,10 @@ function SelectLanguage (props) {
 {/* Display username name of each Github repo (link to repo) */}
 {/* Display user log-in name of each Github repo */}
 {/* Display how many stars each Github repo has earned */}
-function RepoGrid (props) {
+const RepoGrid = (props) => {
   return (
     <ul className='popular-list'>
-      {props.repos.map(function (repo, index) {
+      {props.repos.map((repo, index) => {
         return (
           <li key={repo.name} className='popular-item'>
             <div className='popular-rank'>#{index + 1}</div>
@@ -88,7 +87,7 @@ export default class Popular extends React.Component {
       repos: null
     };
 
-  componentDidMount () {
+  componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
@@ -102,13 +101,14 @@ export default class Popular extends React.Component {
 
     api.fetchPopularRepos(lang)
     .then((repos) => {
-      this.setState(function () {
+      this.setState(() => {
         return {
           repos: repos,
         }
       })
     });
   }
+
   render() {
     return (
       <div>

@@ -15,17 +15,19 @@ import PlayerPreview from './PlayerPreview';
 {/* Set input value prop as username */}
 {/* onChange  calls handleChangemethod method / stores id and username state to props */}
 class PlayerInput extends React.Component {
-    state = {
-      username: ''
-    }
+  state = {
+  username: ''
+  }
+
   handleChange = (e) => {
     const value = e.target.value;
-    this.setState(function () {
+    this.setState(() => {
       return {
         username: value
       }
     })
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(
@@ -33,6 +35,7 @@ class PlayerInput extends React.Component {
       this.state.username
     )
   }
+
   render() {
     return (
       <form className='column' onSubmit={this.handleSubmit}>
@@ -79,22 +82,24 @@ export default class Battle extends React.Component {
     }
 
   handleSubmit = (id, username) => {
-    this.setState(function () {
+    this.setState(() => {
       const newState = {};
       newState[id + 'Name'] = username;
       newState[id + 'Image'] = 'http://github.com/' + username + '.png?size=200';
       return newState;
     });
   }
+
   handleReset = (id) => {
-    this.setState(function () {
+    this.setState(() => {
       const newState = {};
       newState[id + 'Name'] = '';
       newState[id + 'Image'] = null;
       return newState;
     })
   }
-  render () {
+
+  render() {
     const match = this.props.match;
     const playerOneName = this.state.playerOneName;
     const playerTwoName = this.state.playerTwoName;

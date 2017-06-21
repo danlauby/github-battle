@@ -10,7 +10,7 @@ const params = "?client_id=" + id + "&client_secret=" + sec;
 {/*  Return users with Axios library */}
 {/* Promise gets user data after request is complete */}
 const getProfile = (username) => {
-   axios.get('https://api.github.com/users/' + username + params)
+  return axios.get('https://api.github.com/users/' + username + params)
     .then((user) => {
       return user.data;
     });
@@ -19,13 +19,13 @@ const getProfile = (username) => {
 {/* Request repos object from Github */}
 {/* Return repos with Axios library, limit  to 100 repos per page */}
 const getRepos = (username) => {
-  axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
+  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
 }
 
 {/* Collect stargazer stars from repos and reduce array to a single number  */}
 const getStarCount = (repos) => {
-  repos.data.reduce((count, repo) => {
-    count + repo.stargazers_count;
+  return repos.data.reduce((count, repo) => {
+    return count + repo.stargazers_count;
   }, 0);
 }
 
@@ -35,19 +35,21 @@ const getStarCount = (repos) => {
 const calculateScore = (profile, repos) => {
   const followers = profile.followers;
   const totalStars = getStarCount(repos);
-    (followers * 3) + totalStars;
+  return (followers * 3) + totalStars;
 }
+
 
 {/* Log error to console if !null */}
 const handleError = (error) => {
   console.warn(error);
-    null;
+  return null;
 }
+
 
 {/* Call api requests and get all requests in promise and return in order */}
 {/* Store profile and calculated score as properties */}
 const getUserData = (player) => {
-  axios.all([
+  return axios.all([
     getProfile(player),
     getRepos(player)
   ]).then((data) => {
@@ -62,9 +64,9 @@ const getUserData = (player) => {
 
 {/* Sort players by subtracting loser score from winners score */}
 const sortPlayers = (players) => {
-  players.sort((a,b) => {
-    b.score - a.score;
-  })
+    return players.sort((a,b) => {
+      return b.score - a.score;
+    })
 }
 
 {/* Export promise with profile, score of each player */}
@@ -74,7 +76,7 @@ const sortPlayers = (players) => {
 {/* Export api to Results.js, Popular.js */}
 module.exports = {
   battle: (players) => {
-    axios.all(players.map(getUserData))
+    return axios.all(players.map(getUserData))
       .then(sortPlayers)
       .catch(handleError)
   },
