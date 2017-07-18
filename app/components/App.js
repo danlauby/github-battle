@@ -1,21 +1,19 @@
-{/* Import required labraries */}
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-{/* Import required components */}
-import  Battle  from './Battle';
-import  Home  from './Home';
-import  Nav  from './Nav';
-import  Popular  from './Popular';
-import  Results  from'./Results';
+import React, { Component } from 'react';
+var ReactRouter = require('react-router-dom');
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Switch = ReactRouter.Switch;
+import Nav from './Nav';
+import Battle from './Battle';
+import Home from './Home';
+import Popular from './Popular';
+import Results from './Results';
 
-{/* Inject Nav component */}
-{/* Define routes using react-router (router, route switch) library */}
-{/* Set home and battle routes to 'exact' so battle won't render when battle/results renders */}
-{/* 404 route displays if error thrown */}
-export default class App extends React.Component {
+
+export default class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <div className='container'>
           <Nav />
           <Switch>
@@ -28,7 +26,7 @@ export default class App extends React.Component {
             }} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     )
   }
 }

@@ -1,25 +1,20 @@
-{/* Import required libraies */}
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-{/* Import required components */}
+import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
 
-{/* Set initial state of username to an empty string */}
-{/* Bind 'this' to handleChange and handleSubmit methods so 'this' refers to the parent component */}
-{/* Event handler takes in input 'value' and sets username state when submitted */}
-{/* Event handler stores id and usernname as props when user clickes submit */}
-{/* Render form and set input properties */}
-{/* onSubmit calls handleSubmit method / sets state of username */}
-{/* Display label prop from Results -> Player component */}
-{/* Set input value prop as username */}
-{/* onChange  calls handleChangemethod method / stores id and username state to props */}
-class PlayerInput extends React.Component {
-  state = {
-  username: ''
+
+class PlayerInput extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      username: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     const value = e.target.value;
     this.setState(() => {
       return {
@@ -28,7 +23,7 @@ class PlayerInput extends React.Component {
     })
   }
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.onSubmit(
       this.props.id,
@@ -61,7 +56,6 @@ class PlayerInput extends React.Component {
   }
 }
 
-{/* Set data types for PlayerInput properties */}
 PlayerInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -69,19 +63,21 @@ PlayerInput.propTypes = {
 
 }
 
-{/* Set initial state for Battle component properties */}
-{/* handleSubmit stores username and Github avatar props as newState property */}
-{/* Reset Battle inputs if Reset button clicked */}
-{/* Render UI of each player if player username and img !null */}
+
 export default class Battle extends React.Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       playerOneName: '',
       playerTwoName: '',
       playerOneImage: null,
       playerTwoImage: null
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
 
-  handleSubmit = (id, username) => {
+  handleSubmit(id, username) {
     this.setState(() => {
       const newState = {};
       newState[id + 'Name'] = username;
@@ -90,7 +86,7 @@ export default class Battle extends React.Component {
     });
   }
 
-  handleReset = (id) => {
+  handleReset(id) {
     this.setState(() => {
       const newState = {};
       newState[id + 'Name'] = '';
@@ -99,7 +95,7 @@ export default class Battle extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const match = this.props.match;
     const playerOneName = this.state.playerOneName;
     const playerTwoName = this.state.playerTwoName;

@@ -1,11 +1,8 @@
-{/* Import required libraies */}
 import React from 'react';
 import PropTypes from 'prop-types';
 
-{/* Return player UI for each player */}
-{/* Share this component with Battle component  */}
-{/* Display children props within PlayerPreview -> Battle.js */}
-export default function PlayerPreview (props) {
+
+const PlayerPreview = (props) => {
   return (
     <div>
       <div className='column'>
@@ -20,8 +17,10 @@ export default function PlayerPreview (props) {
     </div>
   )
 }
-{/* Set data types for PlayerPreview properties */}
+
 PlayerPreview.protoTypes = {
   avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired
 }
+
+module.exports = PlayerPreview;

@@ -1,20 +1,12 @@
-{/* Import required libraies */}
 import React from 'react';
 import PropTypes from 'prop-types';
-{/* Import required components */}
 import api from '../utils/api';
 import Loading from './Loading';
 
 
-{/* Select language in nav to display repos */}
-{/* Popular nav bar of languages */}
-{/* For each lang in nav */}
-{/* If current lang === selected lang change color to red ('All' is default) */}
-{/* Event listener for nav languages (give props lang property) */}
-{/* Give each nav list-item a unique key with val of lang name */}
-{/* Insert each lang into a list-item */}
-function SelectLanguage(props) {
+const SelectLanguage = (props) => {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+
   return (
     <ul className='languages'>
       {languages.map((lang) => {
@@ -31,14 +23,6 @@ function SelectLanguage(props) {
   )
 }
 
-{/* Create UI grid to display popular repos (pass props as parameter) */}
-{/* For each repo return each response object's repo and index */}
-{/* Give each repo unique key of repo's name */}
-{/* Increment index to display github rankings */}
-{/* Display avatar of Github owner of each repo */}
-{/* Display username name of each Github repo (link to repo) */}
-{/* Display user log-in name of each Github repo */}
-{/* Display how many stars each Github repo has earned */}
 const RepoGrid = (props) => {
   return (
     <ul className='popular-list'>
@@ -65,33 +49,30 @@ const RepoGrid = (props) => {
   )
 }
 
-{/* Set restricted prop data-types for RepoGrid function */}
 RepoGrid.propTypes = {
   repos: PropTypes.array.isRequired
 }
 
-{/* Set restricted prop data-types for SelectLanguage function */}
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
 };
 
-{/* After DOM renders update state of selected language */}
-{/* Update state of selected language */}
-{/* Call Github API and run fetch method to return selected language repos */}
-{/* Pass SelectLanguage current language and update and display in grid */}
-{/* If repos falsy, run Loading method */}
 export default class Popular extends React.Component {
-  state = {
+  constructor (props) {
+    super(props);
+    this.state = {
       selectedLanguage: 'All',
       repos: null
     };
+    this.updateLanguage = this.updateLanguage.bind(this);
+  }
 
-  componentDidMount() {
+  componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage = (lang) => {
+  updateLanguage(lang) {
     this.setState(() => {
       return {
         selectedLanguage: lang,
@@ -100,15 +81,15 @@ export default class Popular extends React.Component {
     });
 
     api.fetchPopularRepos(lang)
-    .then((repos) => {
+    .then(function (repos) {
       this.setState(() => {
         return {
           repos: repos,
         }
       })
-    });
+    }.bind(this));
   }
-
+  
   render() {
     return (
       <div>

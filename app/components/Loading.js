@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
@@ -8,20 +8,19 @@ const styles = {
   }
 }
 
-export default class Loading extends React.Component {
-  constructor(props) {
+class Loading extends Component {
+  constructor (props) {
     super(props);
-
     this.state = {
       text: props.text
     };
   }
-  
+
   componentDidMount() {
     const stopper = this.props.text + '...';
     this.interval = window.setInterval(function () {
       if (this.state.text === stopper) {
-        this.setState(function () {
+        this.setState(() => {
           return {
             text: this.props.text
           }
@@ -36,11 +35,11 @@ export default class Loading extends React.Component {
     }.bind(this), this.props.speed);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.clearInterval(this.interval);
   }
 
-  render() {
+  render () {
     return (
       <p style={styles.content}>
         {this.state.text}
@@ -58,3 +57,5 @@ Loading.defaultProps = {
   text: 'Loading',
   speed: 300
 };
+
+module.exports = Loading;
